@@ -8,6 +8,8 @@ public class MainMenu : MonoBehaviour {
 
     private GameManageris gm;
 
+    public GameObject AboutTheGameBox;
+
     public Text PlayText;
 
 	// Use this for initialization
@@ -17,14 +19,16 @@ public class MainMenu : MonoBehaviour {
 	
     public void PlayButtonClicked()
     {
-        PlayText.text = "T Ę S T I";
         gm.MainMenu.SetActive(false);
         gm.GameArea.SetActive(true);
     }
     public void AboutTheGameClicked()
     {
-
-
+        AboutTheGameBox.SetActive(true);
+    }
+    public void AboutTheGameBoxExit()
+    {
+        AboutTheGameBox.SetActive(false);
     }
     public void StatisticsClicked()
     {
@@ -33,6 +37,7 @@ public class MainMenu : MonoBehaviour {
     }
     public void ReturnToMainMenu()
     {
+        PlayText.text = "T Ę S T I";
         gm.MainMenu.SetActive(true);
         gm.GameArea.SetActive(false);
 

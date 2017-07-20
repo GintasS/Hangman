@@ -11,6 +11,15 @@ public class PrepareData : MonoBehaviour {
 
     public TextAsset DataFile;
 
+    public bool DataActionsAreFinished;
+
+    void Start()
+    {
+        DataActionsAreFinished = false;
+    }
+
+
+
     public void ReadDataFromFile()
     {
         try
@@ -37,8 +46,8 @@ public class PrepareData : MonoBehaviour {
             string laikinas = Words[random_sk];
             Words[random_sk] = Words[i];
             Words[i] = laikinas;
-
         }
+        DataActionsAreFinished = true;
     }
 
 }
