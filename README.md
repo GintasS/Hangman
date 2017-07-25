@@ -52,3 +52,5 @@ Features:<br>
     <td>php</td>
   </tr>      
 </table>
+<br>
+Total lines of code:<strong>718</strong>.
