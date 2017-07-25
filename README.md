@@ -34,35 +34,15 @@ So I though I could make this classical game a lot better.
     <td>StatisticsManager.cs</td>
     <td>95</td> 
     <td>c#</td>
-  </tr>
-   <tr>
-    <td>---</td>
-    <td>---</td> 
-    <td>---</td>
-  </tr>  
-   <tr>
-    <td>Player/PlayerHealth.cs</td>
-    <td>95</td> 
-    <td>c#</td>
   </tr>   
-    <tr>
-    <td>Player/PlayerSounds.cs</td>
-    <td>115</td> 
-    <td>c#</td>
-  </tr>    
-   <tr>
-    <td>Player/Shooting.cs</td>
-    <td>117</td> 
-    <td>c#</td>
-  </tr>     
      <tr>
     <td>---</td>
     <td>---</td> 
     <td>---</td>
   </tr>  
    <tr>
-    <td>Zombie/ZombieHealth.cs</td>
-    <td>83</td> 
-    <td>c#</td>
+    <td>get_words.php</td>
+    <td>43</td> 
+    <td>php</td>
   </tr>      
 </table>
