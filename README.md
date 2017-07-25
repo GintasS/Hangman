@@ -9,6 +9,7 @@ Features:<br>
 * About 300 000 lithuanian words.<br>
 * 4 Different difficulty levels. <br>
 * Basic statistics.<br>
+* Game is free and there are nothing to buy.Game is completly free from the ground up.<br>
 
 <table style="width:100%">
   <tr>
