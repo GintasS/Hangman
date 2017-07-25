@@ -3,215 +3,303 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using System.Text;
 
 public class GameManageris : MonoBehaviour {
 
+    // Main Script responsible for managing the game, it's states and all other related stuff.
+
+    // GameObjects for displaying on/off the MainMenu, GameArea etc
     public GameObject MainMenu,
                       GameArea,
                       WordArea,
                       UnderScore,
+                      SubmitScoreBox,
                       MessageBox;
-
-    public GameObject[] Current_word_all_letters;
-
-    public Text[] All_letters;
-
-    public Text LivesLeftCounter,
-                MessageBoxText;
-
-    public Sprite[] AllHangmanSprites;
-
-    public Image Hangman;
-
-    private PrepareData PrepData;
-
+    // Bools which are responsible for various game states.
     public bool WordWasDecyphered,
                 IsPlayerDead,
                 WordIsShown,
-                TimerIsEnded;
+                TimerIsEnded,
+                TimerForSecondsCounterIsEnded;
 
+    // Int's that hold important information, like the index for Words.
     public int WordIndex,
                LivesLeft,
-               SecondsSpent,
                HangmanIndex,
                FoundLettersCount;
 
-    
-
+    // Event System for capturing User Inputs.
     public EventSystem evs;
 
+    // Timers.
     public float Timer,
-                 Timer_default;
+                 TimerDefault,
+                 TimerSecondsCounter,
+                 TimerSecondsCounterDefault;
 
-    // Use this for initialization
+    // Array which is responsible for holding all the current word's letter gameobjects.
+    public GameObject[] CurrentWordAllLetters;
+
+    // All the letters the User can press.
+    public Text[] AllLetters;
+
+    // Text components for changing Lives/Seconds and etc.
+    public Text LivesLeftCounter,
+                TimeSpentCounter,
+                MessageBoxText;
+
+    // All the hangman sprites.
+    public Sprite[] AllHangmanSprites;
+
+    // Actual Image component to whom the sprites are.
+    public Image Hangman;
+    
+    // Reference to scripts.
+    private PrepareData PrepData;
+
+    private SoundManager SoundM;
+
+    private StatisticsManager StatsM;
+
     void Start ()
     {
-        PrepData= GameObject.Find("Data").GetComponent<PrepareData>();
+        PrepData = GameObject.Find("Data").GetComponent<PrepareData>();
+        SoundM  = GameObject.Find("SoundManagerScript").GetComponent<SoundManager>();
+        StatsM = GameObject.Find("StatisticsManagerScript").GetComponent<StatisticsManager>();
         PrepData.ReadDataFromFile();
-        DisplayWord();
         IsPlayerDead = false;
         TimerIsEnded = false;
+        TimerForSecondsCounterIsEnded = true;
         WordWasDecyphered = false;
     }
-	
-	// Update is called once per frame
+
 	void Update ()
     {
-        if (WordWasDecyphered == true && IsPlayerDead == false)
+        // Timer which is used to move to the next word after the successfull decypher.
+        if ( WordWasDecyphered == true)
         {
-            if ( Timer > 0 && TimerIsEnded == false)
+            if (Timer > 0 && TimerIsEnded == false)
                 Timer -= Time.deltaTime;
-            else if ( Timer < 0 && TimerIsEnded == false)
+            else if (Timer < 0 && TimerIsEnded == false)
             {
-                Timer = Timer_default;
+                // If the Timer is below 0 and it's not stopped, stop it and reset it.
+                Timer = TimerDefault;
                 TimerIsEnded = true;
             }
-
         }
-        if (IsPlayerDead == false && TimerIsEnded == true && WordWasDecyphered == true)
+        
+        // Spent seconds counter which is used to show for how long does the actual decyphering for the current word is taking place.
+        if (TimerSecondsCounter > 0 && TimerForSecondsCounterIsEnded == false && ( IsPlayerDead == false && WordWasDecyphered == false))
+            TimerSecondsCounter -= Time.deltaTime;
+        else if ( TimerSecondsCounter < 0 && TimerForSecondsCounterIsEnded == false)
         {
-            RestartTheGame(1);
+            // If the Seconds counter timer is less than 0 and the counter is active, reset it back to the default value.
+
+            TimerSecondsCounter = TimerSecondsCounterDefault;
+            StatsM.Stats_FindingWordTimeInSeconds++;
+            TimeSpentCounter.text = StatsM.Stats_FindingWordTimeInSeconds + " s";
         }
 
+        // Stop the timer if one of the below conditions are met.
+        if (GameArea.activeSelf == false || IsPlayerDead == true || WordWasDecyphered == true)
+            TimerForSecondsCounterIsEnded = true;
+        else
+            TimerForSecondsCounterIsEnded = false;
 
+        // Display the Message if the player is Dead and the message wasn't displayed yet.
         if (IsPlayerDead == false && LivesLeft == 0)
         {
             IsPlayerDead = true;
-            DisplayMessage("Žaidimą pralaimėjote!" + "\n"  + "\n" + "Žodis buvo: " + PrepData.Words[WordIndex-1]);
+            DisplayMessage("Žaidimą pralaimėjote!" + "\n" + "\n" + "Žodis buvo: " + PrepData.WordsChosenList[WordIndex - 1] + "\n", 1);
         }
-        else if ( IsPlayerDead == true && TimerIsEnded == false)
+        else if (IsPlayerDead == true && StatsM.DataWasSaved == true)
         {
-            if ( Timer > 0 && TimerIsEnded == false)
-                Timer -= Time.deltaTime;
-            else if ( Timer < 0 && TimerIsEnded == false)
-            {
-                Timer = Timer_default;
-                TimerIsEnded = true;
-            }
-        }
-        else if ( IsPlayerDead == true && TimerIsEnded == true)
-        {
+            // If Player Is Dead and Data was saved, restart the game.
             RestartTheGame(0);
         }
-
-        if (evs.currentSelectedGameObject != null && PrepData.DataActionsAreFinished == true && WordIsShown == true && IsPlayerDead == false && WordWasDecyphered == false)
+        else if (IsPlayerDead == false && TimerIsEnded == true && WordWasDecyphered == true)
         {
-            for (int i = 0; i < All_letters.Length; i++)
+            // If Player is not Dead and the Timer Is Ended and the Word was decyphered -> restart the game.
+            RestartTheGame(1);
+        }
+    }
+    // Function which checks the User pressed letter, whether the current word has that letter or not.
+    public void CheckPlayerSelectedLetter()
+    {
+        // If the Word is Active, and if the player is not dead and the world is not decpyhered, proceed further.
+        if (WordIsShown == true && IsPlayerDead == false && WordWasDecyphered == false)
+        {
+            // For all User Available letters, check which was pressed and act accordingly.
+            for (int i = 0; i < AllLetters.Length; i++)
             {
-                if (evs.currentSelectedGameObject.gameObject.ToString() == All_letters[i].gameObject.ToString())
+                // If The Letter seleced is the one, proceed.
+                if (evs.currentSelectedGameObject.gameObject.ToString() == AllLetters[i].gameObject.ToString())
                 {
                     int index = 0;
-                    bool letter_was_found = false;
-                    foreach ( char c in PrepData.Words[WordIndex-1])
+                    bool LetterWasFound = false;
+                    // Find letter[s] in the word and show the found letter on screen by that letter location in the actual word.
+                    foreach (char c in PrepData.WordsChosenList[WordIndex - 1])
                     {
-                        Text cur_word_text = Current_word_all_letters[index].GetComponent<Text>();
-                        string e_converted = c.ToString();
+                        Text PlayerChosenLetterText = CurrentWordAllLetters[index].GetComponent<Text>();
+                        string CurrentWordLetter = c.ToString();
 
-                        if (e_converted.ToUpper() == All_letters[i].text)
+                        // If the letter was found, show it, paint the letter and play the sound.
+                        if (CurrentWordLetter.ToUpper() == AllLetters[i].text)
                         {
-                            cur_word_text.text = e_converted.ToUpper();
-                            letter_was_found = true;
-                            All_letters[i].color = Color.green;
+                            PlayerChosenLetterText.text = CurrentWordLetter.ToUpper();
+                            LetterWasFound = true;
+                            AllLetters[i].color = Color.green;
                             FoundLettersCount++;
+                            SoundM.PlaySuccessSound();
                         }
                         index++;
                     }
-                    if (letter_was_found == false)
+                    // If the letter is not found, paint it red, play the sound, etc.
+                    if (LetterWasFound == false)
                     {
-                        All_letters[i].color = Color.red;
+                        AllLetters[i].color = Color.red;
                         LivesLeft--;
                         LivesLeftCounter.text = LivesLeft.ToString();
                         Hangman.sprite = AllHangmanSprites[HangmanIndex];
                         HangmanIndex++;
+                        SoundM.PlayFailedSound();
                     }
-                    if (FoundLettersCount == Current_word_all_letters.Length)
+                    // If the count of found letters is equal to the length of the word, then the player decyphered the word.
+                    if (FoundLettersCount == CurrentWordAllLetters.Length)
                     {
-                        DisplayMessage("Atspėjote žodį!");
+                        DisplayMessage("Atspėjote žodį!",0);
+                        StatsM.UpdateStatistics(1000);
                         WordWasDecyphered = true;
                         break;
                     }
+                    // Disable the button for the letter, despite the result.
+                    GameObject gm = AllLetters[i].gameObject;
+                    Button bts = gm.GetComponent<Button>();
+                    bts.enabled = false;
 
                 }
             }
-
-            
-
-
+            // Reset the event system selected object.
             evs.SetSelectedGameObject(null);
         }
     }
-    private void DisplayWord()
+    // Function which shows the word.
+    public void DisplayWord()
     {
-        Current_word_all_letters = new GameObject[PrepData.Words[WordIndex].Length];
-        Debug.Log(PrepData.Words[WordIndex]);
-        for (int i = 0; i < PrepData.Words[WordIndex].Length; i++)
+        // If the index is less than the count of the chosen word list, proceed further.
+        if (WordIndex  < PrepData.WordsChosenList.Count)
         {
-            Current_word_all_letters[i] = Instantiate(UnderScore, WordArea.transform) as GameObject;
-            RectTransform rt = Current_word_all_letters[i].GetComponent<RectTransform>();
-            Current_word_all_letters[i].name = "word_letter" + i;
-            rt.anchorMax = new Vector2(0, 1);
-            rt.anchorMin = new Vector2(0, 1);
+            Debug.Log(PrepData.WordsChosenList[WordIndex]);
+            // Get the array of the current word.
+            CurrentWordAllLetters = new GameObject[PrepData.WordsChosenList[WordIndex].Length];
 
-            if (i != 0)
+            // For loop in which we instantiate gameobject for every letter in the current word.
+            for (int i = 0; i < PrepData.WordsChosenList[WordIndex].Length; i++)
             {
-                RectTransform rtas         = Current_word_all_letters[i - 1].GetComponent<RectTransform>();
-                RectTransform word_area_rt = WordArea.GetComponent<RectTransform>();
+                // If the letter is not empty, proceed further.
+                if (PrepData.WordsChosenList[WordIndex].Substring(i, 1) != string.Empty)
+                {
+                    // Instantiate the letter gameobject.
+                    CurrentWordAllLetters[i] = Instantiate(UnderScore, WordArea.transform) as GameObject;
 
-                float x = rtas.rect.width + rtas.anchoredPosition.x;
-                float y = rtas.anchoredPosition.y;
+                    // ReactTransform of the current letter.
+                    RectTransform rt = CurrentWordAllLetters[i].GetComponent<RectTransform>();
 
-                if ( x + rtas.rect.width <= word_area_rt.rect.width)
-                  rt.anchoredPosition = new Vector2(x,y);
-                else
-                  rt.anchoredPosition = new Vector2(0,rt.anchoredPosition.y+y);
+                    /// Change the gameobjects name to something more suitable.
+                    CurrentWordAllLetters[i].name = "word_letter" + i;
+                    
+                    // Get the text component of the gameobject.
+                    Text TextOfCurrentWord = CurrentWordAllLetters[i].GetComponent<Text>();
 
-            }            
+                    // If the current letter is space, make that gameobjects letter text to "" and add one to foundletterscount;
+                    if (PrepData.WordsChosenList[WordIndex].Substring(i,1) == " " )
+                    {
+                        TextOfCurrentWord.text = "";
+                        FoundLettersCount++;
+                    }
+                    // If the letter is not first, find the previous letter and add it's width and last position to the current letter.
+                    if (i != 0)
+                    {
+                        RectTransform rtas = CurrentWordAllLetters[i - 1].GetComponent<RectTransform>();
+                        RectTransform WordAreaRt = WordArea.GetComponent<RectTransform>();
+
+                        if (rtas.rect.width * 2 + rtas.anchoredPosition.x  <= WordAreaRt.rect.width)
+                            rt.anchoredPosition = new Vector2(rtas.rect.width + rtas.anchoredPosition.x, rtas.anchoredPosition.y);
+                        else
+                            rt.anchoredPosition = new Vector2(0, rt.anchoredPosition.y + rtas.anchoredPosition.y);
+                    }
+                }
+            }      
+            WordIndex++;
+            WordIsShown = true;
         }
-        WordIndex++;
-        WordIsShown = true;
+        else
+        {
+            // If the Index is higher then the current word list count, reset the index and restart the game.
+            WordIndex = 0;
+            RestartTheGame(0);
+        }
     }
-    private void DisplayMessage(string message)
+    // Function which displays the message to the player.Parameter 'mode' is for submit box to come on then the player is Dead.
+    public void DisplayMessage(string message,int mode)
     {
         MessageBox.SetActive(true);
         MessageBoxText.text = message;
+        if (mode == 1)
+            SubmitScoreBox.SetActive(true);
     }
+    // Function which restarts the game.Parameter 'status' is for determining what settings should be nulled if the player is Dead or he successfully decyphered the word.
     private void RestartTheGame(int status)
-    {   
+    {
         MessageBox.SetActive(false);
         Hangman.sprite = AllHangmanSprites[0];
         IsPlayerDead = false;
         TimerIsEnded = false;
         WordWasDecyphered = false;
-        Timer        = Timer_default;
+        Timer        = TimerDefault;
         LivesLeft    = 8;
-        SecondsSpent = 0;
         HangmanIndex = 1;
         FoundLettersCount = 0;
+        StatsM.Stats_FindingWordTimeInSeconds = 0;
+        TimerSecondsCounter = TimerSecondsCounterDefault;
 
         DestroyAllLetterObjects();
 
         ResetAllPlayerLettersColor();
 
         LivesLeftCounter.text = "8";
+        TimeSpentCounter.text = "0 s";
 
-        DisplayWord();
         if (status == 0)
         {
+            StatsM.Stats_Score = 0;
             GameArea.SetActive(false);
             MainMenu.SetActive(true);
+            SubmitScoreBox.SetActive(false);
+            StatsM.DataWasSaved = false;
+        }
+        else if ( status == 1)
+        {
+            DisplayWord();
         }
     }
+    // Function which resets all the letters colour back to black;
     private void ResetAllPlayerLettersColor()
     {
-        for (int i = 0; i < All_letters.Length; i++)
-            All_letters[i].color = Color.black;
+        for (int i = 0; i < AllLetters.Length; i++)
+        {
+            AllLetters[i].color = Color.black;
+            GameObject gm = AllLetters[i].gameObject;
+            Button bts = gm.GetComponent<Button>();
+            bts.enabled = true;
+        }
     }
-
+    // Function which destroys all the letter objects.
     private void DestroyAllLetterObjects()
     {
         GameObject[] gameobjects = GameObject.FindGameObjectsWithTag("LetterSpace");
         foreach (GameObject go in gameobjects)
             Destroy(go);
     }
-
 }
