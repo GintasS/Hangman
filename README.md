@@ -107,4 +107,4 @@ Features:<br>
 </table>
 <br>
 Total lines of code (c#):<strong>2598</strong>.<br>
-Total lines of code (php):<string>168</strong>.
+Total lines of code (php):<strong>168</strong>.
