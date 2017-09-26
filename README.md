@@ -95,5 +95,5 @@ Features:<br>
   </tr>      
 </table>
 <br>
-Total lines of code (c#):<strong>2598</strong>.
+Total lines of code (c#):<strong>2598</strong>.<br>
 Total lines of code (php):<string>/<strong>.
