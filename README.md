@@ -5,13 +5,14 @@ This game is quite old, and it has a lot of clones in play store, but so far no 
 So I though I could make this classical game a lot better.<br><br>
 Features:<br>
 * No Internet connection is needed ( except for Facebook actions ).<br>
-* No extra permissions needed.<br>
+* No extra permissions are needed.<br>
 * About 300 000 lithuanian words.<br>
 * 2 Different game modes.<br>
 * 4 Different difficulty levels. <br>
+* Facebook integration.<br>
 * Facebook leaderboards.<br>
 * Game is free.<br>
-* Facebook integration.<br>
+
 
 
 <table style="width:100%">
