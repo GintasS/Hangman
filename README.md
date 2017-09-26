@@ -23,30 +23,63 @@ Features:<br>
   </tr>
   <tr>
     <td>MainMenu.cs</td>
-    <td>153</td> 
+    <td>234</td> 
     <td>c#</td>
   </tr>
    <tr>
     <td>PrepareData.cs</td>
-    <td>87</td> 
+    <td>137</td> 
     <td>c#</td>
   </tr> 
   <tr>
-    <td>GameManageris.cs</td>
-    <td>305</td> 
+    <td>LocalGameManageris.cs</td>
+    <td>606</td> 
     <td>c#</td>
   </tr>  
   <tr>
     <td>SoundManager.cs</td>
-    <td>35</td> 
+    <td>42</td> 
     <td>c#</td>
   </tr>
   <tr>
     <td>StatisticsManager.cs</td>
-    <td>95</td> 
+    <td>285</td> 
+    <td>c#</td>
+  </tr>
+  <tr>
+    <td>Shop.cs</td>
+    <td>218</td> 
+    <td>c#</td>
+  </tr>  
+  <tr>
+    <td>ServerScoreboard.cs</td>
+    <td>157</td> 
+    <td>c#</td>
+  </tr>    
+  <tr>
+    <td>FacebookScript.cs</td>
+    <td>357</td> 
+    <td>c#</td>
+  </tr>  
+   <tr>
+    <td>ErrorManageris.cs</td>
+    <td>63</td> 
+    <td>c#</td>
+  </tr>  
+   <tr>
+    <td>CustomLogger.cs</td>
+    <td>19</td> 
+    <td>c#</td>
+  </tr> 
+   <tr>
+    <td>AdScriptas.cs</td>
+    <td>261</td> 
     <td>c#</td>
   </tr>   
-     <tr>
+  
+  
+  
+  <tr>
     <td>---</td>
     <td>---</td> 
     <td>---</td>
