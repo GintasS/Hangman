@@ -49,17 +49,17 @@ Features:<br>
   <tr>
     <td>Shop.cs</td>
     <td>218</td> 
-    <td>c#</td>
+    <td>c#,Admob</td>
   </tr>  
   <tr>
     <td>ServerScoreboard.cs</td>
     <td>157</td> 
-    <td>c#</td>
+    <td>c#,JSON</td>
   </tr>    
   <tr>
     <td>FacebookScript.cs</td>
     <td>357</td> 
-    <td>c#</td>
+    <td>c#,Facebook SDK</td>
   </tr>  
    <tr>
     <td>ErrorManageris.cs</td>
@@ -74,7 +74,7 @@ Features:<br>
    <tr>
     <td>AdScriptas.cs</td>
     <td>261</td> 
-    <td>c#</td>
+    <td>c#,Admob</td>
   </tr>   
    <tr>
     <td>AnimController.cs</td>
@@ -96,12 +96,12 @@ Features:<br>
    <tr>
     <td>2file.php</td>
     <td>55</td> 
-    <td>php</td>
+    <td>php,mysql</td>
   </tr> 
     <tr>
     <td>3file.php</td>
     <td>69</td> 
-    <td>php</td>
+    <td>php,mysql</td>
   </tr>  
   
 </table>
