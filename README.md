@@ -49,12 +49,12 @@ Features:<br>
   <tr>
     <td>Shop.cs</td>
     <td>218</td> 
-    <td>c#,Admob</td>
+    <td>c#,admob</td>
   </tr>  
   <tr>
     <td>ServerScoreboard.cs</td>
     <td>157</td> 
-    <td>c#,JSON</td>
+    <td>c#,json</td>
   </tr>    
   <tr>
     <td>FacebookScript.cs</td>
@@ -74,7 +74,7 @@ Features:<br>
    <tr>
     <td>AdScriptas.cs</td>
     <td>261</td> 
-    <td>c#,Admob</td>
+    <td>c#,admob</td>
   </tr>   
    <tr>
     <td>AnimController.cs</td>
