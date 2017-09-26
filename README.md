@@ -89,11 +89,22 @@ Features:<br>
     <td>---</td>
   </tr>  
    <tr>
-    <td>get_words.php</td>
-    <td>43</td> 
+    <td>1file.php</td>
+    <td>44</td> 
     <td>php</td>
-  </tr>      
+  </tr>
+   <tr>
+    <td>2file.php</td>
+    <td>55</td> 
+    <td>php</td>
+  </tr> 
+    <tr>
+    <td>3file.php</td>
+    <td>69</td> 
+    <td>php</td>
+  </tr>  
+  
 </table>
 <br>
 Total lines of code (c#):<strong>2598</strong>.<br>
-Total lines of code (php):<string>/<strong>.
+Total lines of code (php):<string>168</strong>.
