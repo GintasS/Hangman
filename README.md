@@ -12,7 +12,9 @@ Features:<br>
 * Facebook integration.<br>
 * Facebook leaderboards.<br>
 * Game is free.<br>
-
+<br>
+You can download the game for free from the Google play store:<br>
+https://play.google.com/store/apps/details?id=com.Revoliucija.ZodziuRevoliucija <br>
 
 
 <table style="width:100%">
