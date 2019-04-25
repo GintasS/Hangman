@@ -26,39 +26,39 @@ https://play.google.com/store/apps/details?id=com.Revoliucija.ZodziuRevoliucija
   <li>About 300 000 lithuanian words</li>
   <li>2 Different game modes</li>
   <li>4 Different difficulty levels</li>
-  <li>Facebook integration</li>
-  <li>Facebook leaderboards</li>
+  <li>Facebook integration(currently don't work)</li>
+  <li>Facebook leaderboards(currently don't work)</li>
   <li>Game is free</li>
 </ul>
 
 ## <a name="Media"></a>Media
 
 <a target="_blank" href="https://github.com/GintasS/Hangman/blob/master/Screenshots/1.png">
-  <img<img src="https://github.com/GintasS/Hangman/blob/master/Screenshots/1.png" height="500" style="max-width:100%;"></img>
+  <img src="https://github.com/GintasS/Hangman/blob/master/Screenshots/1.png" height="500" style="max-width:100%;"></img>
 </a>
 <blockquote>Picture(10/07/2017)</blockquote>
 <br>
 
 <a target="_blank" href="https://github.com/GintasS/Hangman/blob/master/Screenshots/2.png">
-  <img<img src="https://github.com/GintasS/Hangman/blob/master/Screenshots/2.png" height="500" style="max-width:100%;"></img>
+  <img src="https://github.com/GintasS/Hangman/blob/master/Screenshots/2.png" height="500" style="max-width:100%;"></img>
 </a>
-<blockquote>Picture(10/07/2017)</blockquote>
+<blockquote>Won windown(10/07/2017)</blockquote>
 <br>
 
 <a target="_blank" href="https://github.com/GintasS/Hangman/blob/master/Screenshots/3.png">
-  <img<img src="https://github.com/GintasS/Hangman/blob/master/Screenshots/3.png" height="500" style="max-width:100%;"></img>
+  <img src="https://github.com/GintasS/Hangman/blob/master/Screenshots/3.png" height="500" style="max-width:100%;"></img>
 </a>
 <blockquote>Picture(10/07/2017)</blockquote>
 <br>
 
 <a target="_blank" href="https://github.com/GintasS/Hangman/blob/master/Screenshots/4.png">
-  <img<img src="https://github.com/GintasS/Hangman/blob/master/Screenshots/4.png" height="500" style="max-width:100%;"></img>
+  <img src="https://github.com/GintasS/Hangman/blob/master/Screenshots/4.png" height="500" style="max-width:100%;"></img>
 </a>
-<blockquote>Picture(10/07/2017)</blockquote>
+<blockquote>Lost window(10/07/2017)</blockquote>
 <br>
 
 <a target="_blank" href="https://github.com/GintasS/Hangman/blob/master/Screenshots/5.png">
-  <img<img src="https://github.com/GintasS/Hangman/blob/master/Screenshots/5.png" height="500" style="max-width:100%;"></img>
+  <img src="https://github.com/GintasS/Hangman/blob/master/Screenshots/5.png" height="500" style="max-width:100%;"></img>
 </a>
 <blockquote>Picture(10/07/2017)</blockquote>
 <br>
