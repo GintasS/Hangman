@@ -12,23 +12,20 @@
 ## <a name="Intro"></a>Intro
 
 <p>Just a classic Hangman game made by Unity Engine for Android phones.<br><br>
-This game is quite old, and it has a lot of clones in play store, but so far no lithuanian version is good.<br>
+This game is quite old, and it has a lot of clones in play store, but so far no Lithuanian version is good.<br>
 So I though I could make this classical game a lot better.<br><br>
-You can download the game for free from the Google play store:<br>
-https://play.google.com/store/apps/details?id=com.Revoliucija.ZodziuRevoliucija
+You can download the game for free from the Google play store: <a href="https://play.google.com/store/apps/details?id=com.Revoliucija.ZodziuRevoliucija" target="_blank">link</a>.
 </p>
 
 ## <a name="Features"></a>Features
 
 <ul>
-  <li>No Internet connection is needed (except for Facebook actions)</li>
-  <li>No extra permissions are needed</li>
-  <li>About 300 000 lithuanian words</li>
-  <li>2 Different game modes</li>
-  <li>4 Different difficulty levels</li>
-  <li>Facebook integration(currently don't work)</li>
-  <li>Facebook leaderboards(currently don't work)</li>
-  <li>Game is free</li>
+  <li>No Internet connection is needed.</li>
+  <li>No extra permissions are needed.</li>
+  <li>About 300 000 lithuanian words.</li>
+  <li>2 Different game modes.</li>
+  <li>4 Different difficulty levels.</li>
+  <li>Game is free.</li>
 </ul>
 
 ## <a name="Media"></a>Media
