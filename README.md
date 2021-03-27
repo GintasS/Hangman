@@ -22,9 +22,9 @@ You can download the game for free from the Google play store: <a href="https://
 <ul>
   <li>No Internet connection is needed.</li>
   <li>No extra permissions are needed.</li>
-  <li>About 300 000 lithuanian words.</li>
-  <li>2 Different game modes.</li>
-  <li>4 Different difficulty levels.</li>
+  <li>About 300 000 Lithuanian words.</li>
+  <li>Two Different game modes.</li>
+  <li>Four Different difficulty levels.</li>
   <li>Game is free.</li>
 </ul>
 
