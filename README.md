@@ -39,7 +39,7 @@ You can download the game for free from the Google play store: <a href="https://
 <a target="_blank" href="https://github.com/GintasS/Hangman/blob/master/Screenshots/2.png">
   <img src="https://github.com/GintasS/Hangman/blob/master/Screenshots/2.png" height="500" style="max-width:100%;"></img>
 </a>
-<blockquote>Won windown(10/07/2017)</blockquote>
+<blockquote>Win windown(10/07/2017)</blockquote>
 <br>
 
 <a target="_blank" href="https://github.com/GintasS/Hangman/blob/master/Screenshots/3.png">
@@ -51,7 +51,7 @@ You can download the game for free from the Google play store: <a href="https://
 <a target="_blank" href="https://github.com/GintasS/Hangman/blob/master/Screenshots/4.png">
   <img src="https://github.com/GintasS/Hangman/blob/master/Screenshots/4.png" height="500" style="max-width:100%;"></img>
 </a>
-<blockquote>Lost window(10/07/2017)</blockquote>
+<blockquote>Lose window(10/07/2017)</blockquote>
 <br>
 
 <a target="_blank" href="https://github.com/GintasS/Hangman/blob/master/Screenshots/5.png">
