@@ -12,11 +12,10 @@
 ## <a name="Intro"></a>Intro
 
 <p>Welcome to the classic Hangman game, now available on Android and built using the Unity Engine!<br><br>
-This game brings a fresh and improved experience to the timeless word-guessing challenge, especially tailored for Lithuanian speakers.<br>
+This game brings a fresh and improved experience to the timeless word-guessing challenge, especially tailored for Lithuanian speakers.<br><br>
 While there are many versions of Hangman available on the Play Store, this one stands out with its extensive word database and user-friendly features.<br>
-Dive into the game and enjoy guessing from a collection of about 300,000 Lithuanian words, across various game modes and difficulty levels.<br>
-Best of all, you can play anytime, anywhere, without needing an internet connection or granting extra permissions.<br>
-Join the fun and see if you can outsmart the Hangman!
+Dive into the game and enjoy guessing from a collection of about 300,000 Lithuanian words, across various game modes and difficulty levels.<br><br>
+Best of all, you can play anytime, anywhere, without needing an internet connection or granting extra permissions.
 </p>
 
 ## <a name="Features"></a>Features
