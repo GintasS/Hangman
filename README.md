@@ -6,69 +6,67 @@
 
   - [Intro](#intro)
   - [Features](#features)
+  - [Technologies](#technologies)
   - [Media](#media)
-  - [Changelog](#changelog)
 
 ## <a name="Intro"></a>Intro
 
-<p>Just a classic Hangman game made by Unity Engine for Android phones.<br><br>
-This game is quite old, and it has a lot of clones in play store, but so far no Lithuanian version is good.<br>
-So I though I could make this classical game a lot better.<br><br>
-You can download the game for free from the Google play store: <a href="https://play.google.com/store/apps/details?id=com.Revoliucija.ZodziuRevoliucija" target="_blank">link</a>.
+<p>Welcome to the classic Hangman game, now available on Android and built using the Unity Engine!<br><br>
+This game brings a fresh and improved experience to the timeless word-guessing challenge, especially tailored for Lithuanian speakers.<br>
+While there are many versions of Hangman available on the Play Store, this one stands out with its extensive word database and user-friendly features.<br>
+Dive into the game and enjoy guessing from a collection of about 300,000 Lithuanian words, across various game modes and difficulty levels.<br>
+Best of all, you can play anytime, anywhere, without needing an internet connection or granting extra permissions.<br>
+Join the fun and see if you can outsmart the Hangman!
 </p>
 
 ## <a name="Features"></a>Features
-
 <ul>
-  <li>No Internet connection is needed.</li>
-  <li>No extra permissions are needed.</li>
-  <li>About 300 000 Lithuanian words.</li>
-  <li>Two Different game modes.</li>
-  <li>Four Different difficulty levels.</li>
-  <li>Game is free.</li>
+  <li><b>No Internet Connection Needed:</b> Enjoy the game anytime, anywhere without requiring an internet connection.</li>
+  <li><b>No Extra Permissions:</b> Play the game without granting any additional permissions.</li>
+  <li><b>Extensive Word Database:</b> Guess from a collection of about 300,000 Lithuanian words.</li>
+  <li><b>Multiple Game Modes:</b> Choose between two different game modes for varied gameplay.</li>
+  <li><b>Various Difficulty Levels:</b> Challenge yourself with four different difficulty levels.</li>
+  <li><b>Free to Play:</b> Enjoy the game completely free of charge.</li>
 </ul>
+
+## <a name="Technologies"></a>Technologies 
+
+| Technology Stack | Description |
+| ---------------- | ----------- |
+| **Unity Engine** | The primary game engine used to develop the Hangman game, providing robust tools for game development. |
+| **C#** | The programming language used within Unity to script game mechanics and functionality. |
+| **Android SDK** | A set of tools used to develop and optimize the game for Android devices. |
+| **GitHub** | A platform for hosting the project's source code and facilitating collaboration. |
+| **Facebook API** | Integrated to allow players to save and compare scores on a leaderboard. |
 
 ## <a name="Media"></a>Media
 
 <a target="_blank" href="https://github.com/GintasS/Hangman/blob/master/Screenshots/1.png">
   <img src="https://github.com/GintasS/Hangman/blob/master/Screenshots/1.png" height="500" style="max-width:100%;"></img>
 </a>
-<blockquote>Picture(10/07/2017)</blockquote>
+<blockquote>Picture</blockquote>
 <br>
 
 <a target="_blank" href="https://github.com/GintasS/Hangman/blob/master/Screenshots/2.png">
   <img src="https://github.com/GintasS/Hangman/blob/master/Screenshots/2.png" height="500" style="max-width:100%;"></img>
 </a>
-<blockquote>Win Picture(10/07/2017)</blockquote>
+<blockquote>Win Picture</blockquote>
 <br>
 
 <a target="_blank" href="https://github.com/GintasS/Hangman/blob/master/Screenshots/3.png">
   <img src="https://github.com/GintasS/Hangman/blob/master/Screenshots/3.png" height="500" style="max-width:100%;"></img>
 </a>
-<blockquote>Picture(10/07/2017)</blockquote>
+<blockquote>Picture</blockquote>
 <br>
 
 <a target="_blank" href="https://github.com/GintasS/Hangman/blob/master/Screenshots/4.png">
   <img src="https://github.com/GintasS/Hangman/blob/master/Screenshots/4.png" height="500" style="max-width:100%;"></img>
 </a>
-<blockquote>Lose Picture(10/07/2017)</blockquote>
+<blockquote>Lose Picture</blockquote>
 <br>
 
 <a target="_blank" href="https://github.com/GintasS/Hangman/blob/master/Screenshots/5.png">
   <img src="https://github.com/GintasS/Hangman/blob/master/Screenshots/5.png" height="500" style="max-width:100%;"></img>
 </a>
-<blockquote>Picture(10/07/2017)</blockquote>
+<blockquote>Picture</blockquote>
 <br>
-
-## <a name="Changelog"></a>Changelog
-
-<h3> CHANGELOG 26/07/2020</h3>
-<ul>
-  <li>Target Level API was updated to API Level 30.</li>
-</ul>
-
-<h3> CHANGELOG 27/03/2021</h3>
-<ul>
-  <li>Fixed grammar mistakes.</li>
-</ul>
-
